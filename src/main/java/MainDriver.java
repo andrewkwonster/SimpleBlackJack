@@ -48,4 +48,9 @@ public class MainDriver {
         // TODO: implement this method so that it adds all of the player's card and returns the sum
         return 0;
     }
+
+
+    public static void deal(Player player){
+        //TODO implement a method that deals a random card for a player
+    }
 }
