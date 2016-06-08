@@ -1,3 +1,9 @@
+# Exclude auto-generated files
+.idea/
+.gradle/
+.build/
+gradle/
+
 *.class
 
 # Mobile Tools for Java (J2ME)
