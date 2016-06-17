@@ -1,8 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import models.Card;
 import models.Player;
+
 
 /**
  * Created by samskim on 6/8/16.
@@ -17,6 +19,7 @@ public class MainDriver {
 
         Card B1 = new Card("Heart", 10);
         Card B2 = new Card("Spade", 8);
+        Card B3 = new Card("Diamond", 2);
 
         int Asum = A1.getNum() + A2.getNum() + A3.getNum();
         int Bsum = B1.getNum() + B2.getNum();
@@ -30,7 +33,10 @@ public class MainDriver {
 
 
         Player playerB = new Player();
-        // TODO: create list of cards for player B and add some cards
+        List<Card> Bcards = new ArrayList<Card>();
+        Bcards.add(B1);
+        Bcards.add(B2);
+        Bcards.add(B3);
 
 
 
@@ -44,13 +50,24 @@ public class MainDriver {
         }
     }
 
-    public static int getSumOfCards(Player player){
+    public static int getSumOfCards(Player player, List<Card> Acards, List<Card> Bcards){
+        int sum = 0;
+        for(int i = 0 ; i<Acards.size();i++){
+            sum+=Acards.get()[i];
+        }
+        return sum;
+    }
         // TODO: implement this method so that it adds all of the player's card and returns the sum
-        return 0;
+
     }
 
 
     public static void deal(Player player){
+
+        Random rand = new Random();
+        int value = rand.nextInt(10);
+
+
         //TODO implement a method that deals a random card for a player
     }
 }
