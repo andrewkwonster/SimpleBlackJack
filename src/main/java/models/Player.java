@@ -11,6 +11,8 @@ public class Player {
     private List<Card> cards;
 
     public Player(){
+        // this line will be executed upon construction of this player
+
 
     }
 
