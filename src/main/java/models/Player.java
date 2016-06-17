@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,8 +13,7 @@ public class Player {
 
     public Player(){
         // this line will be executed upon construction of this player
-
-
+        cards = new ArrayList<>();
     }
 
     public Player(String id, List<Card> cards){

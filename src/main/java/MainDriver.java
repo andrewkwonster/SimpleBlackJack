@@ -11,40 +11,6 @@ import models.Player;
 public class MainDriver {
 
     public static void main(String[] args){
-
-//        Card A1 = new Card("Diamond", 5);
-//        Card A2 = new Card("Clover", 9);
-//        Card A3 = new Card("Diamond", 7);
-//
-//        Card B1 = new Card("Heart", 10);
-//        Card B2 = new Card("Spade", 8);
-//        Card B3 = new Card("Diamond", 2);
-//
-//        int Asum = A1.getNum() + A2.getNum() + A3.getNum();
-//        int Bsum = B1.getNum() + B2.getNum();
-//
-//
-//        Player playerA = new Player();
-//        List<Card> Acards = new ArrayList<Card>();
-//        Acards.add(A1);
-//        Acards.add(A2);
-//        Acards.add(A3);
-//
-//        Player playerB = new Player();
-//        List<Card> Bcards = new ArrayList<Card>();
-//        Bcards.add(B1);
-//        Bcards.add(B2);
-//        Bcards.add(B3);
-//
-//        playerA.setCards(Acards);
-//        playerB.setCards(Bcards);
-//
-//        int sumOfAsCards = getSumOfCards(playerA);
-//        System.out.println("Sum of A's cards: " + sumOfAsCards);
-//
-//        int sumOfBsCards = getSumOfCards(playerB);
-//        System.out.println("Sum of B's cards: " + sumOfBsCards);
-
         Player playerA = new Player();
         Player playerB = new Player();
 
@@ -53,10 +19,22 @@ public class MainDriver {
         deal(playerA);
         deal(playerB);
 
+        /*
+        TODO: print what cards the player currently has.
+        Then, implement scanner here, so that the player can hit or stay
+
+
+         */
+
+
         // then we can ask these players what to do : hit? or stay
 
 
+
         // when all of the dealing is done, we can compare using getSumOfCards
+        printCards(playerA);
+        printCards(playerB);
+
         int Asum = getSumOfCards(playerA);
         int Bsum = getSumOfCards(playerB);
 
@@ -67,6 +45,8 @@ public class MainDriver {
         }else{
             System.out.println("Push");
         }
+
+
     }
 
     public static int getSumOfCards(Player player){
@@ -89,6 +69,22 @@ public class MainDriver {
         Random rand = new Random();
         int value = rand.nextInt(10);
 
+        String[] shapes = {"Diamonds", "Hearts", "Clubs", "Spades"};
+        int shapeIndex = rand.nextInt(4);
+
+        Card card = new Card(shapes[shapeIndex], value);
+
+        List<Card> cards = player.getCards();
+
+        cards.add(card);
+
         //TODO implement a method that deals a random card for a player
     }
+
+    public static void printCards(Player player){
+        // TODO: print player's cards in a nice format
+    }
+
+
+
 }
