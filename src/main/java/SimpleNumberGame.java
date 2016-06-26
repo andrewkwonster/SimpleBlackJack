@@ -17,5 +17,4 @@ public class SimpleNumberGame {
         // 6. Show which player wins
         // Next week, we'll go over the answers
     }
-
 }
