@@ -1,9 +1,11 @@
+package practices;
+
 import java.util.Scanner;
 
 /**
  * Created by samskim on 6/17/16.
  */
-public class Practice {
+public class Scanners {
 
     public static void main(String[] args){
 

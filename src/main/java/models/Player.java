@@ -11,14 +11,10 @@ public class Player {
     private String id;
     private List<Card> cards;
 
-    public Player(){
+    public Player(String id){
         // this line will be executed upon construction of this player
-        cards = new ArrayList<>();
-    }
-
-    public Player(String id, List<Card> cards){
         this.id = id;
-        this.cards = cards;
+        cards = new ArrayList<>();
     }
 
     public String getId() {

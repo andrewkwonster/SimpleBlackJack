@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 import models.Card;
 import models.Player;
@@ -11,27 +12,46 @@ import models.Player;
 public class MainDriver {
 
     public static void main(String[] args){
-        Player playerA = new Player();
-        Player playerB = new Player();
+        Player playerA = new Player("A");
+        Player playerB = new Player("B");
 
         deal(playerA);
         deal(playerB);
         deal(playerA);
         deal(playerB);
 
-        /*
-        TODO: print what cards the player currently has.
-        Then, implement scanner here, so that the player can hit or stay
+        printCards(playerA);
+        printCards(playerB);
+        System.out.println();
+
+        System.out.println("hit/stay?");
+        Scanner scan = new Scanner(System.in);
+        String decision;
+
+        boolean turnA = true;
+
+        while (!(decision = scan.nextLine()).equals("stay")){
 
 
-         */
+            if (turnA){
+                deal(playerA);
+                turnA = false;
+            }else{
+                deal(playerB);
+                turnA = true;
+            }
 
+            printCards(playerA);
+            printCards(playerB);
+            System.out.println();
+        }
 
-        // then we can ask these players what to do : hit? or stay
+        getResult(playerA, playerB);
 
+    }
 
+    private static void getResult(Player playerA, Player playerB) {
 
-        // when all of the dealing is done, we can compare using getSumOfCards
         printCards(playerA);
         printCards(playerB);
 
@@ -45,8 +65,6 @@ public class MainDriver {
         }else{
             System.out.println("Push");
         }
-
-
     }
 
     public static int getSumOfCards(Player player){
@@ -67,7 +85,7 @@ public class MainDriver {
     public static void deal(Player player){
 
         Random rand = new Random();
-        int value = rand.nextInt(10);
+        int value = rand.nextInt(9) + 1;
 
         String[] shapes = {"Diamonds", "Hearts", "Clubs", "Spades"};
         int shapeIndex = rand.nextInt(4);
@@ -83,8 +101,12 @@ public class MainDriver {
 
     public static void printCards(Player player){
         // TODO: print player's cards in a nice format
+
+        List<Card> cards = player.getCards();
+        System.out.println(player.getId());
+        for (Card c: cards){
+            System.out.println(c);
+        }
     }
-
-
 
 }

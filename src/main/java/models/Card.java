@@ -32,4 +32,9 @@ public class Card {
     public void setNum(int num) {
         this.num = num;
     }
+
+    public String toString(){
+        return shape + ": " + num;
+    }
+
 }
