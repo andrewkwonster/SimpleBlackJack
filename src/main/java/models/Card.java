@@ -3,7 +3,7 @@ package models;
 /**
  * Created by samskim on 6/8/16.
  */
-public class Card {
+public class Card{
 
     private String shape;
     private int num;
@@ -36,5 +36,6 @@ public class Card {
     public String toString(){
         return shape + ": " + num;
     }
+
 
 }
