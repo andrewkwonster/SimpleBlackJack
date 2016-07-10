@@ -5,9 +5,9 @@ package models;
  */
 public class Person {
 
-  private int id;
-  private String name;
-  private int age;
+  public int id;
+  public String name;
+  public int age;
 
   public Person(int id, String name, int age){
     this.id = id;

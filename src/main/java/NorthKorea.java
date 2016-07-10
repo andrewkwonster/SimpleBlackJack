@@ -1,6 +1,4 @@
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 import models.Person;
 
@@ -13,6 +11,27 @@ public class NorthKorea {
     // a dictator tries to keep record of the people in North Korea
     Set<Person> people = createPeople(100000);
 
+    HashMap<Integer, Person> map = new HashMap<>();
+    for (Person p : people) {
+      map.put(p.id, p);
+    }
+    System.out.println(map.size());
+
+    Set<Person> census = new HashSet<>();
+    for (Person person : people) {
+      if (person.id == 74431) {
+        System.out.println(person.age + " " + person.name);
+      }
+    }
+    Iterator<Person> i = census.iterator();
+    while (i.hasNext()) {
+      Person person = i.next();
+      if (person.age < 18) {
+
+      }
+//    }
+
+
     /*
      You have a set of ~100,000 people living in North Korea
      1. What is the actual number of people?
@@ -20,6 +39,7 @@ public class NorthKorea {
      3. How many teenagers are there?
     */
 
+    }
   }
 
 
