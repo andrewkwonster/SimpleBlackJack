@@ -1,4 +1,8 @@
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Random;
+import java.util.Set;
 
 import models.Person;
 
@@ -11,27 +15,6 @@ public class NorthKorea {
     // a dictator tries to keep record of the people in North Korea
     Set<Person> people = createPeople(100000);
 
-    HashMap<Integer, Person> map = new HashMap<>();
-    for (Person p : people) {
-      map.put(p.id, p);
-    }
-    System.out.println(map.size());
-
-    Set<Person> census = new HashSet<>();
-    for (Person person : people) {
-      if (person.id == 74431) {
-        System.out.println(person.age + " " + person.name);
-      }
-    }
-    Iterator<Person> i = census.iterator();
-    while (i.hasNext()) {
-      Person person = i.next();
-      if (person.age < 18) {
-
-      }
-//    }
-
-
     /*
      You have a set of ~100,000 people living in North Korea
      1. What is the actual number of people?
@@ -39,16 +22,40 @@ public class NorthKorea {
      3. How many teenagers are there?
     */
 
+    // #1.
+    System.out.println(people.size());
+
+
+    // #2
+    HashMap<Integer, Person> map = new HashMap<>();
+    for (Person p : people) {
+      map.put(p.id, p);
     }
+
+    System.out.println(map.get(74431));
+
+
+    Iterator<Person> iterator = people.iterator();
+
+    int numTeenagers = 0;
+
+    while (iterator.hasNext()){
+      Person p = iterator.next();
+      if (p.age >= 10 && p.age < 20){
+        numTeenagers += 1;
+      }
+    }
+
+    System.out.println(numTeenagers);
+
   }
 
 
-
   // Creating Random people.. don't worry about this part and below
-  public static Set<Person> createPeople(int length){
+  public static Set<Person> createPeople(int length) {
     Set<Person> people = new HashSet<>();
     Random rand = new Random();
-    for (int i = 0; i < length; i++){
+    for (int i = 0; i < length; i++) {
 
       people.add(new Person(i, randomIdentifier(), 1 + rand.nextInt(70)));
     }
@@ -61,11 +68,11 @@ public class NorthKorea {
 
   public static String randomIdentifier() {
     StringBuilder builder = new StringBuilder();
-    while(builder.toString().length() == 0) {
-      int length = rand.nextInt(5)+5;
-      for(int i = 0; i < length; i++)
+    while (builder.toString().length() == 0) {
+      int length = rand.nextInt(5) + 5;
+      for (int i = 0; i < length; i++)
         builder.append(lexicon.charAt(rand.nextInt(lexicon.length())));
-      if(identifiers.contains(builder.toString()))
+      if (identifiers.contains(builder.toString()))
         builder = new StringBuilder();
     }
     return builder.toString();
